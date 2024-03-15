@@ -20,7 +20,6 @@ export const useBlog = function ({ id }: { id: string }) {
         setBlog(response.data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
         setLoading(false);
       }
     }

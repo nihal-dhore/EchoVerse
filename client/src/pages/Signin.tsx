@@ -23,13 +23,12 @@ export const Signin = () => {
         `${process.env.BACKEND_URL}/api/v1/user/signin`,
         data
       );
-      console.log(response);
+
       localStorage.setItem("authToken", response.data.token);
       localStorage.setItem("user", response.data.name);
       navigate("/blogs");
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.log(error.response);
         if (error.response?.status === 401) {
           setError("password", {
             message: error.response.data.error,
