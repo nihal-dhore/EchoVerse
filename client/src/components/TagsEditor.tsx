@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { blogPost } from "./TitleEditor";
 import { UseFormRegister } from "react-hook-form";
 import { createPostInput } from "@nihal-dhore/common";
 
@@ -21,7 +20,7 @@ export const TagsEditor = ( {register} : {register: UseFormRegister<createPostIn
   };
 
   const removeTag = (index: number) => {
-    setTags(tags.filter((element, i) => i !== index));
+    setTags(tags.filter((_, i) => i !== index));
   };
 
   return (

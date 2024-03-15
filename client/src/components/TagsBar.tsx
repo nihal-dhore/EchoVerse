@@ -10,7 +10,7 @@ export const TagsBar = ({setBlogs}: {setBlogs: React.Dispatch<React.SetStateActi
   return (
     <div className="flex mt-20 max-w-[100%] sm:max-w-[50%] w-screen">
       {tags.map((tag) => {
-        return <Tag key={tag.id} id={tag.id} tag={tag.tag} setBlogs={setBlogs} />;
+        return <Tag key={tag.id} id={tag.id!} tag={tag.tag} setBlogs={setBlogs} />;
       })}
     </div>
   );

@@ -11,7 +11,6 @@ import { Signin } from "./pages/Signin.tsx";
 import { Blog } from "./pages/Blog.tsx";
 import { Blogs } from "./pages/Blogs.tsx";
 import { NewBlog } from "./pages/NewBlog.tsx";
-import { BlogSkeleton } from "./pages/BlogSkeleton.tsx";
 
 const router = createBrowserRouter([
   {

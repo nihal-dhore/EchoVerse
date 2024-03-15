@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import { Avatar } from "../components/Avatar";
 import { useBlog } from "../hooks/useBlog";
 import { Appbar } from "../components/Appbar";
 import { BlogSkeleton } from "./BlogSkeleton";
 import { PublishedDate } from "../components/PublishedDate";
 import { Navbar } from "../components/Navbar";
 import { useVerify } from "../hooks/useVerify";
+import { AuthorAvatar } from "../components/AuthorAvatar";
 
 export const Blog = () => {
   const { blogId } = useParams<{ blogId: string }>();
@@ -40,7 +40,7 @@ export const Blog = () => {
         <div className="flex flex-col mx-[20%] invisible md:visible">
           <label className="text-sm">Author</label>
           <div className="flex mt-2 items-center">
-            <Avatar authorName={blog?.author.name || " "} />
+            <AuthorAvatar authorName={blog?.author.name || " "} />
             <div className="mx-5">
               <div>{`${blog?.author.name[0].toUpperCase()}${
                 blog?.author.name.slice(1, blog?.author.name.length) || " "

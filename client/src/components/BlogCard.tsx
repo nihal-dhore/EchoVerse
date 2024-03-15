@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Avatar } from "./Avatar";
 import { Time } from "./PublishedTime";
+import { AuthorAvatar } from "./AuthorAvatar";
 
 interface BlogCardProps {
   id: string;
@@ -20,12 +20,13 @@ export const BlogCard = ({
   const navigate = useNavigate();
 
   return (
-    <Link to={`/blog/${id}`}
+    <Link
+      to={`/blog/${id}`}
       className="mx-4 my-3 max-w-[70%] sm:max-w-[50%] cursor-pointer w-screen"
       onClick={() => navigate(`/blog/${id}`)}
     >
       <div className="flex items-center">
-        <Avatar authorName={authorName} />
+        <AuthorAvatar authorName={authorName} />
         <span className="ml-2">
           <span className="mr-2">{`${authorName[0].toUpperCase()}${authorName.slice(
             1,
