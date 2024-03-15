@@ -14,11 +14,12 @@ export const LandingPage = () => {
             <div className="text-gray-400 inline-block">E C H O V E R S E</div>
           </span>
           <span className="mb-5">Where Minds Meet: Join the Conversation</span>
-          <button className="w-300 bg-white text-black py-2 rounded-full mt-5">
+          <button className="w-300 bg-white text-black py-2 rounded-full mt-5" onClick={() => navigate("/signup")}>
             Sign up with Google
           </button>
-          <button className="w-300 bg-white text-black py-2 rounded-full mt-5">
+          <button className="w-300 bg-white text-black py-2 rounded-full mt-5" onClick={() => navigate("/signup")}>
             Sign up with Facebook
+           
           </button>
           <button
             className="w-300 bg-white text-black py-2 rounded-full mt-5"
