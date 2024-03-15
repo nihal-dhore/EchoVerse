@@ -5,7 +5,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { signinInput } from "@nihal-dhore/common";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { BACKEND_URL } from "../config";
 
 export const Signin = () => {
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ export const Signin = () => {
   const onSubmit: SubmitHandler<signinInput> = async (data) => {
     try {
       const response = await axios.post(
-        `${BACKEND_URL}/api/v1/user/signin`,
+        `${process.env.BACKEND_URL}/api/v1/user/signin`,
         data
       );
       console.log(response);

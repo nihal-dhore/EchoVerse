@@ -4,7 +4,6 @@ import { ContentEditor } from "../components/ContentEditor";
 import { TitleEditor } from "../components/TitleEditor";
 import { createPostInput } from "@nihal-dhore/common";
 import axios, { isAxiosError } from "axios";
-import { BACKEND_URL } from "../config";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useVerify } from "../hooks/useVerify";
@@ -26,7 +25,7 @@ export const NewBlog = () => {
 
   const onSubmit: SubmitHandler<createPostInput> = async (data) => {
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/v1/blog`, data, {
+      const response = await axios.post(`${process.env.BACKEND_URL}/api/v1/blog`, data, {
         headers: {
           Authorization: localStorage.getItem("authToken"),
         },

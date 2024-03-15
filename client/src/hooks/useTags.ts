@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BACKEND_URL } from "../config";
 
 export interface Tag {
   id?: string,
@@ -12,7 +11,7 @@ export const useTags = () => {
 
 
   useEffect(() => {
-    axios.get(`${BACKEND_URL}/api/v1/blog/tags`)
+    axios.get(`${process.env.BACKEND_URL}/api/v1/blog/tags`)
       .then((response) => {
         setTags(response.data.tags);
       }).catch((error) => {

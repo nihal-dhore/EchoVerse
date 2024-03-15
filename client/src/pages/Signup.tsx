@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { LabelledInput } from "../components/Labelledinput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupInput } from "@nihal-dhore/common";
-import { BACKEND_URL } from "../config";
 
 /* export type formFields = signupInput & { confirmPassword: string } */
 
@@ -28,7 +27,7 @@ export const Signup = () => {
   const onSubmit: SubmitHandler<signupInput> = async (data) => {
     try {
       const response = await axios.post(
-        `${BACKEND_URL}/api/v1/user/signup`,
+        `${process.env.BACKEND_URL}/api/v1/user/signup`,
         data
       );
 

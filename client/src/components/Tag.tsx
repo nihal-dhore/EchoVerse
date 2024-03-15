@@ -1,5 +1,4 @@
 import axios from "axios";
-import { BACKEND_URL } from "../config";
 import { Blog } from "../hooks/useBlogs";
 
 export const Tag = ({
@@ -13,7 +12,7 @@ export const Tag = ({
 }) => {
   const loadBlogsWithTag = async () => {
     try {
-      const blogs = await axios.get(`${BACKEND_URL}/api/v1/blog/tag/${id}`);
+      const blogs = await axios.get(`${process.env.BACKEND_URL}/api/v1/blog/tag/${id}`);
       
       setBlogs(blogs.data.posts);
     } catch (error) {

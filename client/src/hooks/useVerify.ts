@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BACKEND_URL } from "../config";
+
 import {  useLocation, useNavigate } from "react-router-dom";
 
 export const useVerify = () => {
@@ -11,7 +11,7 @@ export const useVerify = () => {
   useEffect(() => {
     const verify = async () => {
       try {
-        await axios.get(`${BACKEND_URL}/api/v1/user/verify`, {
+        await axios.get(`${process.env.BACKEND_URL}/api/v1/user/verify`, {
           headers: {
             Authorization: localStorage.getItem("authToken")
           }
