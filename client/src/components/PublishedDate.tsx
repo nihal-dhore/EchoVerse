@@ -5,9 +5,13 @@ export const PublishedDate = ({ publishedDate }: { publishedDate: string }) => {
 
   useEffect(() => {
     const ComputeDate = () => {
-      const publishedDateTime = new Date(publishedDate);
+      const publishedDateTime = new Date(publishedDate);      
 
-      setPublishedDate(publishedDateTime.toLocaleDateString());
+      setPublishedDate(publishedDateTime.toLocaleDateString('en-US', {
+        month: "short",
+        day: "2-digit",
+        year: "numeric"
+      }));
     };
 
     ComputeDate();
@@ -18,6 +22,6 @@ export const PublishedDate = ({ publishedDate }: { publishedDate: string }) => {
   }, [publishedDate]);
 
   return (
-    <span className="text-gray-400 text-sm ml-2">on {date}</span>
+    <span className="text-gray-400 text-sm"> on {date}</span>
   )
 };

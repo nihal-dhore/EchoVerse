@@ -26,12 +26,12 @@ export const Blog = () => {
   return (
     <div className="flex flex-col">
       {barLoading()}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 w-screen mt-24">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 w-screen mt-32">
         <div className="flex flex-col justify-center mx-[8%] md:ml-[15%] col-span-2 ">
           <header className="text-4xl font-semibold text-white">
             {blog?.title}
           </header>
-          <div className="my-2 text-gray-400 text-sm">
+          <div className="my-6 text-gray-400 text-sm">
             Published
             <PublishedDate publishedDate={blog?.publishedDate || " "} />
           </div>
