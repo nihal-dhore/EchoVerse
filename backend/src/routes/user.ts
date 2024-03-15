@@ -1,6 +1,7 @@
 import {  Hono } from "hono";
-import { signuphandler } from "../controllers/signupHandler";
+import { signupHandler } from "../controllers/signupHandler";
 import { signinHandler } from "../controllers/signinHandler";
+import { verificationHandler } from "../controllers/verificationHandler";
 
 export const userRouter = new Hono<{
   Bindings: {
@@ -12,5 +13,6 @@ export const userRouter = new Hono<{
   }
 }>();
 
-userRouter.post("/signup", signuphandler);
+userRouter.get("/verify", verificationHandler);
+userRouter.post("/signup", signupHandler);
 userRouter.post("/signin", signinHandler);

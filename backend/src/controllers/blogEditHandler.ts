@@ -18,7 +18,7 @@ export const blogEditHandler = async (c: Context) => {
   }
 
   const userId = c.get("userId");
-  const postId = c.req.param().id;  
+  const postId = c.req.param().id;
 
 
   try {
@@ -29,14 +29,18 @@ export const blogEditHandler = async (c: Context) => {
       }, data: {
         title: body.title,
         content: body.content,
-        published: body.published,
-        authorId: userId
+        authorId: userId,
+        tags: {
+          connectOrCreate: body.tags.map((tag) => ({
+            where: tag,
+            create: tag
+          }))
+        }
       }
     });
 
     return c.json({ message: "Blog edited Successfully" });
   } catch (error) {
-
     return c.json({ error: "conflict" }, 409);
   }
 }

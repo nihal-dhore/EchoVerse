@@ -6,20 +6,20 @@ import { Jwt } from "hono/utils/jwt";
 import { signupInput } from "@nihal-dhore/common";
 
 
-export const signuphandler = async (c: Context) => {
+export const signupHandler = async (c: Context) => {
 
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
   const body: signupInput = await c.req.json();
   const signupValidation = signupInput.safeParse(body);
-  console.log(signupValidation);
+
 
 
   if (!signupValidation.success) {
     return c.json({
       error: signupValidation.error.issues[0].message
-    }, 422);
+    }, 400);
   }
 
   const userExist = await prisma.user.findUnique({
@@ -36,14 +36,13 @@ export const signuphandler = async (c: Context) => {
     const hashedPassword = await crypto.subtle.sign({name: "RSA-PASS"}, keyPair,  body.password ) */
 
   const hashedPassword = await bcrypt.hash(body.password, 10);
-  console.log(hashedPassword);
-
 
   const user = await prisma.user.create({
     data: {
-      name: body.username,
+      username: body.username,
       email: body.email,
-      password: hashedPassword
+      password: hashedPassword,
+      name: body.name
     }
   });
 
@@ -53,5 +52,5 @@ export const signuphandler = async (c: Context) => {
 
   const token = "Bearer " + await Jwt.sign({ id: user.id }, c.env.JWT_SECRET);
 
-  return c.json({ msg: "done", token: token });
+  return c.json({ msg: "done", token: token, name: user.name });
 }

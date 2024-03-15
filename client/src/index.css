@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: #e7e9ea;
+}
+
+input:focus ~ .holder {
+  @apply text-white transition-all -translate-y-4
+   text-sm;
+}
+
+input:valid ~ .holder {
+  @apply transform -translate-y-4
+   text-sm;
+}
+
+input:focus ~ .char {
+  @apply transform transition-all -translate-y-8 translate-x-2 
+  text-sm text-gray-400 xl:transform-none lg:text-base;
+}
+
+input:valid ~ .char {
+  @apply transform transition-all -translate-y-8 translate-x-2 
+  text-sm text-gray-400 xl:transform-none lg:text-base;
+}
+
+/* input:placeholder-shown ~ .holder {
+  @apply bg-black;
+} */

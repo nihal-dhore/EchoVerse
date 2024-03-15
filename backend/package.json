@@ -4,16 +4,19 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
-    "@nihal-dhore/common": "^1.0.5",
+    "@nihal-dhore/common": "^1.0.12",
     "@prisma/client": "^5.10.2",
     "@prisma/extension-accelerate": "^0.6.3",
     "bcryptjs": "^2.4.3",
-    "hono": "^4.0.5",
-    "prisma": "^5.10.2"
+    "hono": "^4.0.9"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
     "@types/bcryptjs": "^2.4.6",
-    "wrangler": "^3.30.1"
+    "@types/node": "^20.11.24",
+    "prisma": "^5.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.33.0"
   }
 }

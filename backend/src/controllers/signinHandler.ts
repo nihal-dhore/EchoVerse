@@ -18,7 +18,7 @@ export const signinHandler = async (c: Context) => {
   if (!signinValidation.success) {
     return c.json({
       error: signinValidation.error.issues[0].message
-    }, 401);
+    }, 400);
   }
 
   const user = await prisma.user.findUnique({
@@ -41,5 +41,5 @@ export const signinHandler = async (c: Context) => {
 
   const token = "Bearer " + await sign({ id: user.id }, c.env.JWT_SECRET);
 
-  return c.json({ msg: "signin successfully", token: token });
+  return c.json({ msg: "signin successfully", token: token, name: user.name });
 }

@@ -8,8 +8,8 @@ export const blogGetHandler = async(c: Context) => {
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
 
-  const blogId = c.req.param().id;
-  console.log(blogId);
+  const blogId = c.req.param().id;  
+
   
 
   try {
@@ -19,20 +19,29 @@ export const blogGetHandler = async(c: Context) => {
       },
       select: {
         title: true,
-        content: true
+        content: true,
+        publishedDate: true,
+        author: {
+          select: {
+            name: true,
+            username: true
+          }
+        },
+        tags: true
       }
     })
-    console.log(blog);
     
-    setTimeout(() => {
-      console.log(2545);
-    }, 5000);
-    
-    console.log("nn");
+
+    if(blog === null) return c.json({
+      message: "Blog not found"
+    }, 404);
     
     return c.json({
       title: blog?.title,
-      content: blog?.content
+      content: blog?.content,
+      author: blog?.author,
+      publishedDate: blog?.publishedDate,
+      tags: blog.tags
     });
     
   } catch (error) {

@@ -15,22 +15,34 @@ export const blogPostHandler = async (c: Context) => {
   if (!blogValidation.success) {
     return c.json({
       error: "Invalid credentials"
-    })
+    }, 401)
   }
 
   const userId: string = c.get("userId");
   try {
-    
-    
-    await prisma.post.create({
+
+    const currentDate = new Date();
+    // console.log(currentDate.getDate());
+    const response = await prisma.post.create({
       data: {
         title: body.title,
         content: body.content,
-        published: body.published,
-        authorId: userId
+        authorId: userId,
+        publishedDate: currentDate,
+        tags: {
+          connectOrCreate: body.tags.map((tag) => ({
+            where: tag,
+            create: tag
+          }))
+        }
+      },
+      select: {
+        id: true,
+        tags: true
       }
+
     })
-    return c.json({ message: "Blog created successfully" })
+    return c.json({ message: "Blog created successfully", id: response.id })
   } catch (error) {
     console.error(error);
     return c.json({ error: "Conflict" }, 409);
