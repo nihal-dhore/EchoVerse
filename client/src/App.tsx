@@ -1,4 +1,4 @@
-import "./App.css";
+/* import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Signup } from "./pages/Signup";
 import { Signin } from "./pages/Signin";
@@ -7,14 +7,14 @@ import { LandingPage } from "./pages/Landingpage";
 import { Dashboard } from "./pages/Dashboard";
 import { Blogs } from "./pages/Blogs";
 import { NewBlog } from "./pages/NewBlog";
-import { NotFound } from "./pages/NotFound";
+import { NotFound } from "./pages/NotFound"; */
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
-          {/* <Route path="/*" errorElement={<NotFound />} /> */}
+          // <Route path="/*" errorElement={<NotFound />} />
           <Route
             path="/"
             element={<LandingPage />}
@@ -27,7 +27,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/write-in-verse" element={<NewBlog />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
