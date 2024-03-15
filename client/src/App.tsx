@@ -14,7 +14,7 @@ function App() {
     <div>
       {/* <BrowserRouter>
         <Routes>
-          // <Route path="/*" errorElement={<NotFound />} />
+          //<Route path="/*" errorElement={<NotFound />} />
           <Route
             path="/"
             element={<LandingPage />}
