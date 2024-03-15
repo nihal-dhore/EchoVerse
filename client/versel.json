@@ -1,5 +1,5 @@
 {
-  "rewrites": [
+  "routes": [
     { "source": "/", "destination": "/" },
     { "source": "/dashboard", "destination": "/dashboard" },
     { "source": "/signup", "destination": "/signup" },
