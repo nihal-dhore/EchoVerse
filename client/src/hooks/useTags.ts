@@ -9,6 +9,8 @@ export interface Tag {
 export const useTags = () => {
   const [tags, setTags] = useState<Tag[]>([]);
 
+  console.log(process.env.BACKEND_URL);
+  
 
   useEffect(() => {
     axios.get(`${process.env.BACKEND_URL}/api/v1/blog/tags`)

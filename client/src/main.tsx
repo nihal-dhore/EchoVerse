@@ -11,6 +11,7 @@ import { Signin } from "./pages/Signin.tsx";
 import { Blog } from "./pages/Blog.tsx";
 import { Blogs } from "./pages/Blogs.tsx";
 import { NewBlog } from "./pages/NewBlog.tsx";
+import { ServerError } from "./pages/ServerError.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,22 +26,27 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+    errorElement: <ServerError />,
   },
   {
     path: "/signin",
     element: <Signin />,
+    errorElement: <ServerError />,
   },
   {
     path: "/blog/:blogId",
     element: <Blog />,
+    errorElement: <ServerError />,
   },
   {
     path: "/blogs",
     element: <Blogs />,
+    errorElement: <ServerError />,
   },
   {
     path: "/write-in-verse",
     element: <NewBlog />,
+    errorElement: <ServerError />,
   },
 ]);
 
