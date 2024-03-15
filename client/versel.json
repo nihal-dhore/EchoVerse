@@ -1,11 +1,5 @@
 {
   "routes": [
-    { "source": "/", "destination": "/" },
-    { "source": "/dashboard", "destination": "/dashboard" },
-    { "source": "/signup", "destination": "/signup" },
-    { "source": "/signin", "destination": "/signin" },
-    { "source": "/blog/:blogId", "destination": "/blog/:blogId" },
-    { "source": "/blogs", "destination": "/blogs" },
-    { "source": "/write-in-verse", "destination": "/write-in-verse" }
+    { "src": "/[^.]+", "dest": "/", "status": 200 }
   ]
 }
